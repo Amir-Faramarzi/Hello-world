@@ -44,10 +44,10 @@ class RednessApp:
         self.rect = None
 
         self.canvas = tk.Canvas(root)
-        self.canvas.pack()
+        self.canvas.pack(side=tk.TOP)
 
         control_frame = tk.Frame(root)
-        control_frame.pack(pady=5)
+        control_frame.pack(side=tk.TOP, pady=5)
         tk.Button(control_frame, text="Open Video", command=self.open_video).pack(side=tk.LEFT, padx=5)
         tk.Button(control_frame, text="Compute Redness", command=self.compute_redness).pack(side=tk.LEFT, padx=5)
         self.result_var = tk.StringVar()
@@ -78,6 +78,8 @@ class RednessApp:
         self.canvas.bind("<ButtonPress-1>", self.on_press)
         self.canvas.bind("<B1-Motion>", self.on_drag)
         self.canvas.bind("<ButtonRelease-1>", self.on_release)
+        self.root.update_idletasks()
+        self.root.geometry("")
 
     def on_press(self, event):
         self.start_x, self.start_y = event.x, event.y
