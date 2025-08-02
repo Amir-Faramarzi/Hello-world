@@ -1,0 +1,6 @@
+numpy
+opencv-python-headless
+PyYAML
+pytest
+mypy
+pytest-cov
